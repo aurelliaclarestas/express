@@ -25,16 +25,17 @@ app.get("/search", async (req, res)=>{
     }
 })
 
-// curl -X "GET" "http://loclhost:3000/details?movieId=tt1517268"
 app.get("/details", async (req, res)=>{
     const movieId = req.query.movieId;
     if (!movieId)
         return res.status(400).json({ error : "movie id query is required"});
 
-    // diisi dan dilanjutkan untuk request detail movie
+    const movieList = req.query.movieList;
+    if (!movieList)
+        return res.status(400).json({ error : "movie lis query is required"});
 
 })
 
 app.listen(PORT, ()=>{
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:5174`);
 });
